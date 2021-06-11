@@ -124,7 +124,7 @@ measureSpecial <- function(x) {
                `stroke`=,
                `fill`=,
                `fill-stroke`={},
-               stop("Unsupported TikZ special"))
+               stop(paste("Unsupported TikZ special (measureSpecial):", tokens[1])))
     } else {
         ## Path (do nothing - get bbox at end-picture)
         invisible()
@@ -451,7 +451,7 @@ drawSpecial <- function(x) {
                `fill`=drawFill(),
                `fill-stroke`=drawFillStroke(), 
                `transform`=drawTransform(tokens[-1]),
-               stop("Unsupported TikZ special"))
+               stop(paste("Unsupported TikZ special", tokens[1])))
     } else {
         ## Path
         n <- length(tokens)
